@@ -8,6 +8,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
+    <context:property-placeholder location="classpath:student-info.properties"/>
 
     <bean id="humanHeart" class="com.example.springautowired.Heart">
         <property name="typeOfHeart" value="human"/>
@@ -20,5 +21,11 @@
     </bean>
 
     <bean id="human" class="com.example.springautowired.Human"/>
+
+    <bean id="student" class="com.example.springautowired.Student">
+        <property name="name" value="${student.name}"/>
+        <property name="course" value="${student.course}"/>
+        <property name="hobby" value="${student.hobby}"/>
+    </bean>
 
 </beans>
