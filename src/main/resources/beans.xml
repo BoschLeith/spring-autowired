@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="heart" class="com.example.springautowired.Heart"></bean>
+    <context:annotation-config/>
 
-    <bean id="human" class="com.example.springautowired.Human">
-        <property name="heart" ref="heart"/>
+    <bean id="humanHeart" class="com.example.springautowired.Heart">
+        <property name="typeOfHeart" value="human"/>
+        <property name="numOfHeart" value="1"/>
     </bean>
+
+    <bean id="catHeart" class="com.example.springautowired.Heart">
+        <property name="typeOfHeart" value="cat"/>
+        <property name="numOfHeart" value="1"/>
+    </bean>
+
+    <bean id="human" class="com.example.springautowired.Human"/>
 
 </beans>
